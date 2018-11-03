@@ -10,8 +10,16 @@ import java.util.UUID;
 @Entity
 public class Gene extends Model {
     @Id
-    public UUID id;
-    public String name;
+    private UUID id;
+    private String name;
+
+    public UUID getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
 
     public static final Finder<Long, Gene> find = new Finder<>(Gene.class);
 }
