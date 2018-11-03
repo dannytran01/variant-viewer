@@ -7,3 +7,5 @@ addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.6.20")
 // basis using disablePlugins(PlayEnhancer) in your build.sbt
 addSbtPlugin("com.typesafe.sbt" % "sbt-play-enhancer" % "1.2.2")
 
+//Ebean ORM
+addSbtPlugin("com.typesafe.sbt" % "sbt-play-ebean" % "4.0.6")

@@ -7,8 +7,8 @@
     "test:ci": "ng test --watch=false --browsers ChromeHeadless",
     "test:coverage": "ng test --watch=true --code-coverage=true",
     "test:coverage:ci": "ng test --watch=false --code-coverage=true --browsers ChromeHeadless",
-    "build:dev": "ng build --progress --output-path ../public",
-    "build:prod": "ng build --progress --prod --output-path ../public"
+    "build-dev": "ng build --progress --source-map --aot --watch --output-path ../public/js",
+    "build-prod": "ng build --progress --prod --output-path ../public"
   },
   "private": true,
   "dependencies": {
