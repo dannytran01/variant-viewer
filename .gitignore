@@ -9,3 +9,5 @@ build
 /.gradle
 /RUNNING_PID
 variant-viewer.iml
+public/
+conf/evolutions

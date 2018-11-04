@@ -12,6 +12,7 @@ libraryDependencies ++= {
   Seq(
     guice,
     javaJdbc,
+    filters,
     "org.postgresql" % "postgresql" % "42.2.2"
   )
 }
