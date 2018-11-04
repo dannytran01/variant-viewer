@@ -1,23 +1,12 @@
-<div class="section">
-  <div class="container">
+<form>
+  <mat-form-field class="search-container-width">
+    <input type="text" placeholder="Search for a gene" matInput [formControl]="formControl" [matAutocomplete]="auto">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let name of filteredNames | async" [value]="name">
+        {{name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <a class="button is-large is-light search-width">Search</a>
+</form>
 
-    <div class="field has-addons">
-      <div class="control">
-        <input class="input" type="text" placeholder="e.g. BRCA1">
-      </div>
-      <div class="control">
-        <a class="button is-info">
-          Search
-        </a>
-      </div>
-    </div>
-
-
-    <div *ngIf="names">
-      <li *ngFor="let name of names">
-        <span>{{name}}</span>
-      </li>
-    </div>
-
-  </div>
-</div>
