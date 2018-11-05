@@ -1,38 +1,39 @@
-import { Component, OnInit } from '@angular/core';
-import { GeneService } from '../gene.service';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {GeneService} from '../gene.service';
 import {FormControl} from '@angular/forms';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import {of, Subscription} from 'rxjs';
+import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'gene-search',
   templateUrl: './gene-search.component.html',
   styleUrls: ['./gene-search.component.css']
 })
-export class GeneSearchComponent implements OnInit {
+export class GeneSearchComponent implements OnInit, OnDestroy {
 
   formControl = new FormControl();
-  names: string[] = ['BRCA1', 'BRCA2', 'BRRO', 'DOG1'];
-  filteredNames: Observable<string[]>;
+  names: string[] = [];
+  _sub: Subscription = new Subscription();
 
   constructor(private geneService: GeneService) { }
 
-  // ngOnInit() {
-  //   this.geneService.searchGeneNames('br').subscribe(names => this.names = names);
-  // }
-
   ngOnInit() {
-    this.filteredNames = this.formControl.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => this._filter(value))
-      );
+    this._sub.add(
+        this.formControl.valueChanges
+          .pipe(
+            debounceTime(750),
+            distinctUntilChanged(),
+            switchMap(typedValue => {
+              return typedValue.length > 1? this.geneService.searchGeneNames(typedValue) : of([])
+            })
+          )
+          .subscribe(values => {
+            this.names = values;
+          })
+    );
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toUpperCase();
-
-    return this.names.filter(option => option.toUpperCase().includes(filterValue));
+  ngOnDestroy(): void {
+    this._sub.unsubscribe();
   }
-
 }
