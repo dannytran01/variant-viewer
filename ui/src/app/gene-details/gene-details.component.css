@@ -1,0 +1,13 @@
+table {
+  width: 100%;
+}
+
+th {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+tr:nth-child(even) {
+  background-color: WhiteSmoke;
+}

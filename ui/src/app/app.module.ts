@@ -9,19 +9,29 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {GeneDetailsComponent} from './gene-details/gene-details.component';
+import {AppRoutingModule} from './app-routing/app-routing.module';
+import {RouterModule} from '@angular/router';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GeneSearchComponent
+    GeneSearchComponent,
+    GeneDetailsComponent
   ],
   imports: [
+    AppRoutingModule,
+    RouterModule,
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatAutocompleteModule,
     MatInputModule,
     MatFormFieldModule,
+    MatTableModule,
+    MatSortModule,
     ReactiveFormsModule,
     FormsModule
   ],

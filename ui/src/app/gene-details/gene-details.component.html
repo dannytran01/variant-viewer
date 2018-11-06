@@ -1,0 +1,54 @@
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+  <ng-container matColumnDef="geneName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> GENE </th>
+    <td mat-cell *matCellDef="let variant"> {{variant.gene.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="ntChange">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> NUCLEOTIDE CHANGE </th>
+    <td mat-cell *matCellDef="let variant"> {{variant.ntChange}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="proteinChange">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> PROTEIN CHANGE </th>
+    <td mat-cell *matCellDef="let variant"> {{variant.proteinChange}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="alias">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> ALIAS </th>
+    <td mat-cell *matCellDef="let variant"> {{variant.alias}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="region">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> REGION </th>
+    <td mat-cell *matCellDef="let variant"> {{variant.region}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="reportedClassification">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> REPORTED CLASSIFICATION </th>
+    <td mat-cell *matCellDef="let variant"> {{variant.reportedClassification}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="lastEvaluated">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> LAST EVALUATED </th>
+    <td mat-cell *matCellDef="let variant"> {{variant.lastEvaluated | date}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="lastUpdated">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> LAST UPDATED </th>
+    <td mat-cell *matCellDef="let variant"> {{variant.lastUpdated | date}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="moreInfo">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> MORE INFO </th>
+    <td mat-cell *matCellDef="let variant"> <a href="{{variant.url}}">{{variant.source}}</a> </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

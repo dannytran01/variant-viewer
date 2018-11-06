@@ -17,11 +17,13 @@ public class GeneVariant extends Model {
     private Gene gene;
     private String ntChange;
     private String proteinChange;
-    private String mappingAlias;
-    private String transcriptRegion;
+    private String alias;
+    private String region;
     private String reportedClassification;
     private LocalDate lastEvaluated;
     private LocalDate lastUpdated;
+    private String source;
+    private String url;
 
     public UUID getId() {
         return id;
@@ -39,12 +41,12 @@ public class GeneVariant extends Model {
         return proteinChange;
     }
 
-    public String getMappingAlias() {
-        return mappingAlias;
+    public String getAlias() {
+        return alias;
     }
 
-    public String getTranscriptRegion() {
-        return transcriptRegion;
+    public String getRegion() {
+        return region;
     }
 
     public String getReportedClassification() {
@@ -57,6 +59,14 @@ public class GeneVariant extends Model {
 
     public LocalDate getLastUpdated() {
         return lastUpdated;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public String getUrl() {
+        return url;
     }
 
     public static final Finder<Long, GeneVariant> find = new Finder<>(GeneVariant.class);

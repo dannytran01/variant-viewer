@@ -3,6 +3,7 @@ import {GeneService} from '../gene.service';
 import {FormControl} from '@angular/forms';
 import {of, Subscription} from 'rxjs';
 import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'gene-search',
@@ -15,7 +16,8 @@ export class GeneSearchComponent implements OnInit, OnDestroy {
   names: string[] = [];
   _sub: Subscription = new Subscription();
 
-  constructor(private geneService: GeneService) { }
+  constructor(private geneService: GeneService,
+              private router: Router) { }
 
   ngOnInit() {
     this._sub.add(
@@ -31,6 +33,10 @@ export class GeneSearchComponent implements OnInit, OnDestroy {
             this.names = values;
           })
     );
+  }
+
+  getGeneVariants(geneName: string){
+    this.router.navigate(['/gene'], {queryParams: {'name': geneName}});
   }
 
   ngOnDestroy(): void {

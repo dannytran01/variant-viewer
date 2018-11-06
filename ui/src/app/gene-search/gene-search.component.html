@@ -1,4 +1,4 @@
-<form>
+<form (ngSubmit)="getGeneVariants(formControl.value)">
   <mat-form-field class="search-container-width">
     <input type="text" placeholder="Search for a gene" matInput [formControl]="formControl" [matAutocomplete]="auto">
     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
@@ -7,6 +7,6 @@
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
-  <a class="button is-large is-light search-width">Search</a>
+  <button class="button is-large is-light search-width">Search</button>
 </form>
 
