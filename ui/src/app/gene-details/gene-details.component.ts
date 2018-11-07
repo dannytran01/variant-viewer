@@ -1,9 +1,9 @@
-import {Component, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {GeneService} from '../gene.service';
 import {Subscription} from 'rxjs';
 import {MatSort, MatTableDataSource} from '@angular/material';
 import {ActivatedRoute} from '@angular/router';
-import {filter, map, switchMap} from 'rxjs/operators';
+import {map, switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-gene-details',
@@ -29,6 +29,7 @@ export class GeneDetailsComponent implements OnInit, OnDestroy {
           map(params => params.get('name')),
           switchMap(geneName => {
             this.isLoading = true;
+            this.dataSource = null;
             return this.geneService.searchGeneVariants(geneName);
           })
         )
