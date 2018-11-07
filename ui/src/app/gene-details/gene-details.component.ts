@@ -17,6 +17,7 @@ export class GeneDetailsComponent implements OnInit, OnDestroy {
   _sub: Subscription = new Subscription();
   displayedColumns: string[] = ['geneName', 'ntChange', 'proteinChange', 'alias', 'region',
     'reportedClassification', 'lastEvaluated', 'lastUpdated', 'moreInfo'];
+  isLoading: boolean = false;
 
   constructor(private geneService: GeneService,
               private route: ActivatedRoute) { }
@@ -26,9 +27,13 @@ export class GeneDetailsComponent implements OnInit, OnDestroy {
       this.route.queryParamMap
         .pipe(
           map(params => params.get('name')),
-          switchMap(geneName => this.geneService.searchGeneVariants(geneName))
+          switchMap(geneName => {
+            this.isLoading = true;
+            return this.geneService.searchGeneVariants(geneName);
+          })
         )
         .subscribe(data => {
+          this.isLoading = false;
           this.dataSource = new MatTableDataSource(data);
           this.dataSource.sort = this.sort;
         }

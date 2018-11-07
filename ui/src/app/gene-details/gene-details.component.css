@@ -5,9 +5,21 @@ table {
 th {
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 0.9em;
+  vertical-align: middle;
+  text-align: center;
+  background-color: WhiteSmoke;
 }
 
 tr:nth-child(even) {
   background-color: WhiteSmoke;
 }
+
+.data-table{
+  overflow-x: auto;
+}
+
+td {
+  vertical-align: middle;
+}
+

@@ -13,7 +13,7 @@ import {GeneDetailsComponent} from './gene-details/gene-details.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {RouterModule} from '@angular/router';
 import {MatTableModule} from '@angular/material/table';
-import {MatSortModule} from '@angular/material';
+import {MatProgressBarModule, MatSortModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -32,6 +32,7 @@ import {MatSortModule} from '@angular/material';
     MatFormFieldModule,
     MatTableModule,
     MatSortModule,
+    MatProgressBarModule,
     ReactiveFormsModule,
     FormsModule
   ],
