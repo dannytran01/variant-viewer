@@ -22,11 +22,6 @@ public class GeneController extends Controller {
         this.repo = repo;
     }
 
-    public Result list() {
-        List<Gene> genes = repo.getGenes();
-        return ok(Json.toJson(genes));
-    }
-
     public Result searchGenes(Option<String> name){
         if(RestApiUtil.isSearchStrEmpty(name)){
             return ok(Json.toJson(Collections.emptyList()));

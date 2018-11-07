@@ -5,8 +5,7 @@
 # Serve index page from public directory
 GET     /                                           controllers.FrontendController.index()
 
-# An example route (Prefix all API routes with apiPrefix defined in application.conf)
-#GET     /api/v1/genes                               controllers.GeneController.list()
+# Gene routes
 GET     /api/v1/genes                               controllers.GeneController.searchGenes(name: Option[String])
 GET     /api/v1/geneVariants                        controllers.GeneController.searchVariants(geneName: Option[String])
 

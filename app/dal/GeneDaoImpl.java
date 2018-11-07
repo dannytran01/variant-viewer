@@ -7,11 +7,6 @@ import java.util.List;
 
 public class GeneDaoImpl implements GeneDao {
     @Override
-    public List<Gene> getAll() {
-        return Gene.find.all();
-    }
-
-    @Override
     public List<String> findGeneNamesByPrefix(String name) {
         return Gene.find.query()
                 .setDistinct(true)
