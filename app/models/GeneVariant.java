@@ -17,6 +17,7 @@ public class GeneVariant extends Model {
     private Gene gene;
     private String ntChange;
     private String proteinChange;
+    private String otherMappings;
     private String alias;
     private String region;
     private String reportedClassification;
@@ -39,6 +40,10 @@ public class GeneVariant extends Model {
 
     public String getProteinChange() {
         return proteinChange;
+    }
+
+    public String getOtherMappings() {
+        return otherMappings;
     }
 
     public String getAlias() {

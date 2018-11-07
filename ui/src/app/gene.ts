@@ -3,6 +3,7 @@ interface GeneVariant {
   gene: Gene,
   ntChange: string,
   proteinChange: string,
+  otherMappings: string,
   alias: string,
   region: string,
   reportedClassification: string,
