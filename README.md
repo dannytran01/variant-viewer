@@ -1,53 +1,88 @@
-[<img src="https://img.shields.io/travis/playframework/play-java-starter-example.svg"/>](https://travis-ci.org/playframework/play-java-starter-example)
+# Variant Viewer
 
-# play-java-starter-example
+This is a simple app that searches for genes and produces a table of its gene variants.
+Features include: gene search, type-ahead search, and tabular data table view.
 
-This is a starter application that shows how Play works.  Please see the documentation at https://www.playframework.com/documentation/latest/Home for more details.
+## Pre-requisites
+1. Nodejs 
+2. JDK 1.8
 
-## Running
-
-Run this using [sbt](http://www.scala-sbt.org/).  If you downloaded this project from http://www.playframework.com/download then you'll find a prepackaged version of sbt in the project directory:
-
+## Running in production mode
+Install the dependencies
 ```
-sbt run
+./bin/install.sh 
+```
+Run the server locally at http://localhost:9000
+```
+./bin/start_app.sh
+```
+Stop the server
+```
+./bin/stop_app.sh
 ```
 
-And then go to http://localhost:9000 to see the running web application.
+## Running in development mode
+Database binding will be lazy (won't initiate until needed by a function); however, this is the fastest way to get going
+```
+./sbt run
+```
+And then go to http://localhost:4200 to see the running web application.
+Backend server will be serving in http://localhost:9000.
+Both stacks will be watching for changes.
+This project's sbt includes a launcher/wrapper, but if you have SBT installed, you can run yours instead.
 
-## Controllers
+## REST Api Endpoints
 
-There are several demonstration files available in this template.
+#### Gene search
+Search for gene names based on a given prefix
+```
+GET /api/v1/genes
 
-- `HomeController.java`:
+Example usage: localhost:9000/api/v1/genes?prefix=BRCA
+```
+#### Variant Retrieval
+Get gene variants based on a gene name
+```
+GET /api/v1/geneVariants
 
-  Shows how to handle simple HTTP requests.
+Example usage: localhost:9000/api/v1/geneVariants?geneName=BRCA1
+```
 
-- `AsyncController.java`:
 
-  Shows how to do asynchronous programming when handling a request.
+## Tech stack
+- Web Framework - PlayFramework: based on a lightweight, stateless, web-friendly architecture
+- Backend - Java 8, Scala
+- Database - PostgreSQL 10
+- Frontend - Angular 6, Typescript, HTML, CSS
 
-- `CountController.java`:
+#### Notable 3rd Party Libraries/Plugins/Tools
+- RxJs
+- Guice (DI framework)
+- Ebeans (ORM)
+- Angular Material Component
+- Bulma (CSS)
+- Sbt (build tool)
+- Angular CLI - Tool for init, dev, scaffold Angular apps
 
-  Shows how to inject a component into a controller and use the component when
-  handling requests.
+## Utility scripts
+#### DDL file for setting up postgresql tables
+```
+./scripts/sql/create_table_gene_gene_variants.sql
+```
+#### Py3 - Take raw .tsv variant data and create a bulk insert SQL
+Outputs two files, a gene_sql_data.sql file and variant_sql_data.sql file which should be ran
+in respective order due to foreign key dependencies
+```
+./scripts/python/convert_raw_variants_to_sql.py -f variant_results.tsv
+```
 
-## Components
+## Note
+This project was generated using PlayFramework starter project (https://www.playframework.com/getting-started) and 
+AngularCli with support from java-play-angular-seed which helped hook the front end (Angular instead of scala views) 
+to the back end using proper hooks
+https://github.com/yohangz/java-play-angular-seed
 
-- `Module.java`:
-
-  Shows how to use Guice to bind all the components needed by your application.
-
-- `Counter.java`:
-
-  An example of a component that contains state, in this case a simple counter.
-
-- `ApplicationTimer.java`:
-
-  An example of a component that starts when the application starts and stops
-  when the application stops.
-
-## Filters
-
-- `ExampleFilter.java`:
-
-  A simple filter that adds a header to every response.
+#### Files of interest for the hookings
+- FrontendBuild.scala
+- FrontendCommands.scala
+- FrontendController.scala
