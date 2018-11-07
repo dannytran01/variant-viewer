@@ -1,6 +1,18 @@
-<mat-form-field *ngIf="!isLoading">
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-</mat-form-field>
+<div class="level" *ngIf="!isLoading">
+  <div class="level-left">
+    <div class="level-item">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="level-right">
+    <div class="level-item">
+      <p>{{dataSource.data.length}} results found</p>
+    </div>
+  </div>
+</div>
+
 
 <div class="data-table mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" matSort>
