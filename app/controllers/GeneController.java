@@ -22,11 +22,11 @@ public class GeneController extends Controller {
         this.repo = repo;
     }
 
-    public Result searchGenes(Option<String> name){
-        if(RestApiUtil.isSearchStrEmpty(name)){
+    public Result searchGenes(Option<String> prefix){
+        if(RestApiUtil.isSearchStrEmpty(prefix)){
             return ok(Json.toJson(Collections.emptyList()));
         }
-        List<String> genes = repo.findGeneNamesByPrefix(name.get());
+        List<String> genes = repo.findGeneNamesByPrefix(prefix.get());
         return ok(Json.toJson(genes));
     }
 

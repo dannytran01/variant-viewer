@@ -11,6 +11,6 @@ import java.util.List;
  */
 @ImplementedBy(RepositoryImpl.class)
 public interface Repository {
-    List<String> findGeneNamesByPrefix(String name);
+    List<String> findGeneNamesByPrefix(String prefix);
     List<GeneVariant> getVariants(String geneName);
 }

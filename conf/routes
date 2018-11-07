@@ -6,7 +6,7 @@
 GET     /                                           controllers.FrontendController.index()
 
 # Gene routes
-GET     /api/v1/genes                               controllers.GeneController.searchGenes(name: Option[String])
+GET     /api/v1/genes                               controllers.GeneController.searchGenes(prefix: Option[String])
 GET     /api/v1/geneVariants                        controllers.GeneController.searchVariants(geneName: Option[String])
 
 # Serve static assets under public directory

@@ -6,13 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GeneService {
-  //TODO: need to change this api path...remove host somewhere.
   private url: string = "http://localhost:9000/api/v1";
 
   constructor(private http: HttpClient) { }
 
   public searchGeneNames(query: string): Observable<string[]> {
-    return this.http.get<string[]>(`${this.url}/genes?name=${query}`);
+    return this.http.get<string[]>(`${this.url}/genes?prefix=${query}`);
   }
 
   public searchGeneVariants(geneName: string): Observable<GeneVariant[]> {

@@ -6,9 +6,9 @@ import java.util.List;
 
 public class RepositoryImpl implements Repository {
     @Override
-    public List<String> findGeneNamesByPrefix(String name) {
+    public List<String> findGeneNamesByPrefix(String prefix) {
         GeneDao dao = new GeneDaoImpl();
-        return dao.findGeneNamesByPrefix(name);
+        return dao.findGeneNamesByPrefix(prefix);
     }
 
     @Override

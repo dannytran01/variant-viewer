@@ -7,11 +7,11 @@ import java.util.List;
 
 public class GeneDaoImpl implements GeneDao {
     @Override
-    public List<String> findGeneNamesByPrefix(String name) {
+    public List<String> findGeneNamesByPrefix(String prefix) {
         return Gene.find.query()
                 .setDistinct(true)
                 .select("name")
-                .where().istartsWith("name", name)
+                .where().istartsWith("name", prefix)
                 .findSingleAttributeList();
     }
 
