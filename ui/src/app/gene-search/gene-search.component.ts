@@ -23,7 +23,7 @@ export class GeneSearchComponent implements OnInit, OnDestroy {
     this._sub.add(
         this.formControl.valueChanges
           .pipe(
-            debounceTime(750),
+            debounceTime(750), // wait for enough time to pass without any other value appearing before emitting
             distinctUntilChanged(),
             switchMap(typedValue => {
               return typedValue.length > 1? this.geneService.searchGeneNames(typedValue) : of([])
