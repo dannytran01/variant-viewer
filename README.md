@@ -8,7 +8,7 @@ Features include: gene search, type-ahead search, and tabular data table view.
 2. JDK 1.8
 
 ## Running in production mode
-Install the dependencies
+First go to the project directory and install the dependencies
 ```
 ./install.sh 
 ```
