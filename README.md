@@ -10,15 +10,15 @@ Features include: gene search, type-ahead search, and tabular data table view.
 ## Running in production mode
 Install the dependencies
 ```
-./bin/install.sh 
+./install.sh 
 ```
 Run the server locally at http://localhost:9000
 ```
-./bin/start_app.sh
+./start_app.sh
 ```
 Stop the server
 ```
-./bin/stop_app.sh
+./stop_app.sh
 ```
 
 ## Running in development mode

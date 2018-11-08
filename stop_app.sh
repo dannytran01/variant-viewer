@@ -15,4 +15,4 @@ fi
 
 pid=`cat ${PID_FILE}`
 
-kill -INT ${pid}
+kill ${pid}

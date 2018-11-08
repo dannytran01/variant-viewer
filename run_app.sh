@@ -14,4 +14,6 @@ then
     exit 1
 fi
 
-${DIR}/target/universal/stage/bin/variant-viewer -Dplay.http.secret.key='[vc/eM^G51TcvGnTlVV[u1DLY78xTuH`r56VyTTgsq1JDcosl:Cz2LakguQYNx4c'
+nohup ${DIR}/target/universal/stage/bin/variant-viewer -Dplay.http.secret.key='[vc/eM^G51TcvGnTlVV[u1DLY78xTuH`r56VyTTgsq1JDcosl:Cz2LakguQYNx4c' &
+
+echo 'Ready to run on localhost:9000'
