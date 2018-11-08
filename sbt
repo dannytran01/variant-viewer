@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-./sbt-dist/bin/sbt "$@"
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+
+${DIR}/sbt-dist/bin/sbt "$@"
