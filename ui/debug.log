@@ -1,0 +1,5 @@
+[1107/220933.096:ERROR:exception_handler_server.cc(526)] ConnectNamedPipe: The pipe is being closed. (0xE8)
+[1107/221600.694:ERROR:crash_report_database_win.cc(569)] CreateDirectory C:\Users\dtran\AppData\Local\Temp\karma-33261341\Crashpad: The system cannot find the path specified. (0x3)
+[1107/222256.660:ERROR:exception_handler_server.cc(526)] ConnectNamedPipe: The pipe is being closed. (0xE8)
+[1107/222723.363:ERROR:crash_report_database_win.cc(569)] CreateDirectory C:\Users\dtran\AppData\Local\Temp\karma-61141900\Crashpad: The system cannot find the path specified. (0x3)
+[1107/222935.599:ERROR:exception_handler_server.cc(526)] ConnectNamedPipe: The pipe is being closed. (0xE8)

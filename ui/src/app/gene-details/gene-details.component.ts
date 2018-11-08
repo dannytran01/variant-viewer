@@ -4,6 +4,7 @@ import {Subscription} from 'rxjs';
 import {MatSort, MatTableDataSource} from '@angular/material';
 import {ActivatedRoute} from '@angular/router';
 import {map, switchMap} from 'rxjs/operators';
+import {GeneVariant} from '../gene';
 
 @Component({
   selector: 'app-gene-details',

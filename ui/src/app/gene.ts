@@ -1,4 +1,4 @@
-interface GeneVariant {
+export interface GeneVariant {
   id: string,
   gene: Gene,
   ntChange: string,
@@ -13,7 +13,7 @@ interface GeneVariant {
   url: string
 }
 
-interface Gene {
+export interface Gene {
   id: string,
   name: string
 }
