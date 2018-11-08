@@ -13,7 +13,8 @@ libraryDependencies ++= {
     guice,
     javaJdbc,
     filters,
-    "org.postgresql" % "postgresql" % "42.2.2"
+    "org.postgresql" % "postgresql" % "42.2.2",
+    "org.mockito" % "mockito-core" % "2.10.0" % "test"
   )
 }
 

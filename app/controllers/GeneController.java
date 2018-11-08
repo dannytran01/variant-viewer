@@ -1,8 +1,7 @@
 package controllers;
 
-import models.GeneVariant;
 import dal.Repository;
-import models.Gene;
+import models.GeneVariant;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
